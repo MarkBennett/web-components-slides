@@ -1,0 +1,24 @@
+{
+  "name": "web-components-slides",
+  "version": "0.0.0",
+  "authors": [
+    "Mark Bennett <mark@burmis.ca>"
+  ],
+  "description": "An Introduction to Web Components",
+  "main": "index.html",
+  "keywords": [
+    "web",
+    "components",
+    "HTML5",
+    "W3C"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
