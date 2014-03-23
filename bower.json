@@ -22,6 +22,7 @@
     "tests"
   ],
   "dependencies": {
-    "reveal.js": "~2.6.1"
+    "reveal.js": "~2.6.1",
+    "polymer": "~0.2.1"
   }
 }
