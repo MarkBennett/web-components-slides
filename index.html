@@ -19,7 +19,7 @@
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="bower_components/reveal.js/lib/css/zenburn.css">
-		
+
 		<script src="bower_components/platform/platform.js"></script>
 
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
@@ -114,13 +114,13 @@
 					<section>
 						<h1>Example</h1>
 						<script>
-						  var p = Object.create(HTMLElement.prototype);
-							p.createdCallback = function() { this.innerHTML = "Kittens go here!"; };
-							p.attachedCallback = function() { console.log("Inserting into doc."); };
-							p.detachedCallback = function() { console.log("Removing from doc."); };
-							p.attributeChangedCallback = function() { console.log("attribute changed", arguments); };
+						  var p1 = Object.create(HTMLElement.prototype);
+							p1.createdCallback = function() { this.innerHTML = "Kittens go here!"; };
+							p1.attachedCallback = function() { console.log("Inserting into doc."); };
+							p1.detachedCallback = function() { console.log("Removing from doc."); };
+							p1.attributeChangedCallback = function() { console.log("attribute changed", arguments); };
 
-							var custom_elem = document.registerElement('x-kitten-1', { prototype: p });
+							var custom_elem = document.registerElement('x-kitten-1', { prototype: p1 });
 						</script>
 						<pre><code>&lt;script&gt;
 var p = Object.create(HTMLElement.prototype);
