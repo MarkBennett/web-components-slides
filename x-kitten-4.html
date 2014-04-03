@@ -1,0 +1,17 @@
+<template>
+  <style>
+  .kitten-img { width: 50%; }
+  </style>
+  <img src="imgs/6-day-kitten.png" class="kitten-img"
+    credit="http://elvira1990.deviantart.com/art/sleeping-6-days-old-kitten-377444631" />
+</template>
+<script id="example1">
+  var p = Object.create(HTMLElement.prototype);
+  p.createdCallback = function() {
+    var template = document.querySelector("template");
+    var content = document.importNode(template.content, true);
+    var shadow_root = this.createShadowRoot();
+    shadow_root.appendChild(content);
+  };
+  var custom_elem = document.registerElement('x-kitten-4', { prototype: p });
+</script>

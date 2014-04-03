@@ -28,6 +28,7 @@
 		<!--[if lt IE 9]>
 		<script src="bower_components/reveal.js/lib/js/html5shiv.js"></script>
 		<![endif]-->
+		<script src="bower_components/platform/platform.js"></script>
 	</head>
 
 	<body>
@@ -160,22 +161,23 @@ var custom_elem = document.registerElement('x-kitten-1', { prototype: p });
 							var custom_elem = document.registerElement('x-kitten-2', { prototype: p });
 						</script>
 						<pre><code>
-<template id="kitten-2-template">
+&lt;template id="kitten-2-template"&gt;
 	<style>
 	.kitten-img { width: 50%; }
 	</style>
 	<img src="imgs/6-day-kitten.png" class="kitten-img"
 		credit="http://elvira1990.deviantart.com/art/sleeping-6-days-old-kitten-377444631" />
-</template>
-<script id="example1">
+&lt;/template&gt;
+&lt;script&gt;
 	var p = Object.create(HTMLElement.prototype);
 	p.createdCallback = function() {
 		var template = document.querySelector("#kitten-2-template");
 		var content = template.content.cloneNode(true);
 		this.appendChild(content);
 	};
-	var custom_elem = document.registerElement('x-kitten-2', { prototype: p });
-</script>
+	var custom_elem =
+		document.registerElement('x-kitten-2', { prototype: p });
+&lt;/script&gt;
 </code></pre>
 					</section>
 					<section>
@@ -190,6 +192,49 @@ var custom_elem = document.registerElement('x-kitten-1', { prototype: p });
 
 					<section>
 						<h1>Example</h1>
+
+						<template id="kitten-2-template">
+							<style>
+							.kitten-img { width: 50%; }
+							</style>
+							<img src="imgs/6-day-kitten.png" class="kitten-img"
+								credit="http://elvira1990.deviantart.com/art/sleeping-6-days-old-kitten-377444631" />
+						</template>
+						<script id="example1">
+							var p = Object.create(HTMLElement.prototype);
+							p.createdCallback = function() {
+								var template = document.querySelector("#kitten-2-template");
+								var content = document.importNode(template.content, true);
+								var shadow_root = this.createShadowRoot();
+								shadow_root.appendChild(content);
+							};
+							var custom_elem = document.registerElement('x-kitten-3', { prototype: p });
+						</script>
+
+<pre><code>
+&lt;template id="kitten-2-template"&gt;
+	&lt;style&gt;
+	.kitten-img { width: 50%; }
+	&lt;/style&gt;
+	&lt;img src="imgs/6-day-kitten.png" class="kitten-img"
+		credit="http://elvira1990.deviantart.com/art/sleeping-6-days-old-kitten-377444631" /&gt;
+&lt;/template&gt;
+&lt;script id="example1"&gt;
+	var p = Object.create(HTMLElement.prototype);
+	p.createdCallback = function() {
+		var template = document.querySelector("#kitten-2-template");
+		var content = document.importNode(template.content, true);
+		var shadow_root = this.createShadowRoot();
+		shadow_root.appendChild(content);
+	};
+	var custom_elem =
+		document.registerElement('x-kitten-3', { prototype: p });
+&lt;/script&gt;
+</code></pre>
+
+					</section>
+					<section>
+						<x-kitten-3></x-kitten-3>
 					</section>
 				</section>
 
@@ -198,8 +243,44 @@ var custom_elem = document.registerElement('x-kitten-1', { prototype: p });
 						<h1>Imports</h1>
 					</section>
 
+<section>
+	<h1>Example</h1>
+
+	<link rel="import" href="x-kitten-4.html">
+
+<pre><code>
+	<link rel="import" href="x-kitten-4.html">
+</code></pre>
+					</section>
+
 					<section>
-						<h1>Example</h1>
+						<x-kitten-4></x-kitten-4>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Using Custom Elements</h1>
+					</section>
+					<section>
+						<h2>Polymer</h2>
+						<p>A "prolyfill" for custom elements</p>
+					</section>
+					<section>
+						<h2>Chrome Flag</h2>
+						<p><a href="chrome://flags/#enable-experimental-web-platform-features">#enable-experimental-web-platform-features</a></p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Gotchas</h1>
+					</section>
+					<section>
+						<p>Imports are synchronous and blocking by default</p>
+					</section>
+					<section>
+						<p>Imports add (or more) HTTP request</p>
 					</section>
 				</section>
 
