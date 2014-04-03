@@ -153,13 +153,13 @@ var custom_elem = document.registerElement('x-kitten-1', { prototype: p });
 							   credit="http://elvira1990.deviantart.com/art/sleeping-6-days-old-kitten-377444631" />
 						</template>
 						<script id="example1">
-							var p = Object.create(HTMLElement.prototype);
-							p.createdCallback = function() {
+							var p2 = Object.create(HTMLElement.prototype);
+							p2.createdCallback = function() {
 								var template = document.querySelector("#kitten-2-template");
 								var content = template.content.cloneNode(true);
 								this.appendChild(content);
 							};
-							var custom_elem = document.registerElement('x-kitten-2', { prototype: p });
+							var custom_elem = document.registerElement('x-kitten-2', { prototype: p2 });
 						</script>
 						<pre><code>
 &lt;template id="kitten-2-template"&gt;
@@ -202,14 +202,14 @@ var custom_elem = document.registerElement('x-kitten-1', { prototype: p });
 								credit="http://elvira1990.deviantart.com/art/sleeping-6-days-old-kitten-377444631" />
 						</template>
 						<script id="example1">
-							var p = Object.create(HTMLElement.prototype);
-							p.createdCallback = function() {
+							var p3 = Object.create(HTMLElement.prototype);
+							p3.createdCallback = function() {
 								var template = document.querySelector("#kitten-2-template");
 								var content = document.importNode(template.content, true);
 								var shadow_root = this.createShadowRoot();
 								shadow_root.appendChild(content);
 							};
-							var custom_elem = document.registerElement('x-kitten-3', { prototype: p });
+							var custom_elem = document.registerElement('x-kitten-3', { prototype: p3 });
 						</script>
 
 <pre><code>
